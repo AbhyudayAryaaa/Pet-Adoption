@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pet Adoption Center</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f8f8f8;
+    }
+    header {
+        background: #ff7f50;
+        padding: 25px;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+        animation: fadeIn 1.5s ease;
+    }
+
+    nav {
+        background: #ff9f70;
+        padding: 12px;
+        text-align: center;
+        animation: slideDown 1.3s ease;
+    }
+    nav a {
+        text-decoration: none;
+        color: white;
+        margin: 0 15px;
+        font-size: 18px;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+        animation: fadeIn 1.5s ease;
+    }
+
+    h2 {
+        color: #ff7f50;
+    }
+
+    .pets-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        animation: scaleUp 0.8s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .section {
+        background: white;
+        margin-top: 25px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        animation: fadeIn 1.5s ease;
+    }
+
+    /* Adoption Form */
+    label {
+        font-weight: bold;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        padding: 10px 20px;
+        background: #ff7f50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #e96f47;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes slideDown {
+        from { transform: translateY(-30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes scaleUp {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 992px) {
+        .pets-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 600px) {
+        header { font-size: 24px; }
+        nav a { display: block; margin: 10px 0; }
+        .pets-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>Pet Adoption Center</header>
+
+    <nav>
+        <a href="#pets">Available Pets</a>
+        <a href="#form">Adoption Form</a>
+        <a href="#stories">Success Stories</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Pets Section -->
+        <section class="section" id="pets">
+            <h2>Available Pets</h2>
+            <div class="pets-grid">
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/dd/92/15/dd92154640b6807270bc0d4f051be36a.jpg" alt="Pet 1">
+                    <h3>Snowy</h3>
+                    <p>Age: 2 Years</p>
+                    <p>Breed: Persian Cat</p>
+                </div>
+                <div class="card">
+                    <img src="https://placedog.net/300/200" alt="Pet 2">
+                    <h3>Buddy</h3>
+                    <p>Age: 1 Year</p>
+                    <p>Breed: Labrador</p>
+                </div>
+                <div class="card">
+                    <img src="https://dogbreederpune.com/dog_images/german1.jpeg" alt="Pet 3">
+                    <h3>Milo</h3>
+                    <p>Age: 3 Years</p>
+                    <p>Breed: Street Cat</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Adoption Form -->
+        <section class="section" id="form">
+            <h2>Adoption Form</h2>
+            <form id="adoptForm">
+                <label>Your Name</label>
+                <input type="text" required />
+
+                <label>Email</label>
+                <input type="email" required />
+
+                <label>Phone</label>
+                <input type="text" required />
+
+                <label>Select Pet</label>
+                <select required>
+                    <option value="Snowy">Snowy</option>
+                    <option value="Buddy">Buddy</option>
+                    <option value="Milo">Milo</option>
+                </select>
+
+                <label>Why do you want to adopt?</label>
+                <textarea rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Success Stories -->
+        <section class="section" id="stories">
+            <h2>Success Stories</h2>
+            <div class="card">
+                <h3>Luna</h3>
+                <p>Luna was adopted last month and is now living happily with her new family!</p>
+            </div>
+            <div class="card">
+                <h3>Rocky</h3>
+                <p>Rocky found a loving home and enjoys playing in the garden every day.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Form submit animation
+        document.getElementById("adoptForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Your adoption request has been submitted! Our team will contact you soon.");
+        });
+    </script>
+
+</body>
+</html>
